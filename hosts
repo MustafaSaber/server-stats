@@ -1,0 +1,2 @@
+[server]
+server_1 ansible_ssh_host=34.245.12.34 ansible_user=centos ansible_become=yes
