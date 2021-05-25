@@ -1,0 +1,7 @@
+---
+
+CPU_SCRIPT_PATH: "/opt/task/stats_files/cpu_stats.py"
+MEM_SCRIPT_PATH: "/opt/task/stats_files/ram_stats.py"
+DISK_SCRIPT_PATH: "/opt/task/stats_files/disk_stats.py"
+REQ_PATH: "/opt/task/requirements.txt"
+DEST_PATH: "/opt/task"
