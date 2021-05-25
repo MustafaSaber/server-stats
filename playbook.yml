@@ -4,7 +4,7 @@
   become: yes
   tasks:
     - name: Import variables
-      include_vars: var.yaml
+      include_vars: ./ansible/var.yaml
 
     - name: Ping
       ansible.builtin.ping:
@@ -23,9 +23,9 @@
         state: present
 
     - name: Synchronize app
-      become: yes
+      # become: yes
       synchronize:
-        src: ./../
+        src: ./
         dest: "{{ DEST_PATH }}"
         delete: yes
         recursive: true
