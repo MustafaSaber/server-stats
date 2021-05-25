@@ -27,12 +27,12 @@ jobs:
 
       - name: Install ansible
         run: |
-          sudo apt update,
-          sudo apt install software-properties-common,
-          sudo add-apt-repository --yes --update ppa:ansible/ansible,
-          sudo apt install ansible
+          sudo apt install python3-pip,
+          pip3 install ansible
 
       - name: Deploy
-        run: |
-         echo ${{secrets.SSH_PRIVATE_KEY}} > .secret ,
-         ./deploy_server.sh .secret
+        run: 'echo "$SSH_PRIVATE_KEY" > key; ./deploy_server.sh key'
+        shell: bash
+        env:
+          SSH_KEY: ${{secrets.SSH_PRIVATE_KEY}}
+
