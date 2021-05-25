@@ -25,11 +25,14 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-      - name: Run playbook
-        uses: dawidd6/action-ansible-playbook@v2
-        with:
-          playbook: playbook.yml
-          directory: ./
-          key: ${{secrets.SSH_PRIVATE_KEY}}
-            --verbose
+      - name: Install ansible
+        run: |
+          apt update,
+          apt install software-properties-common,
+          add-apt-repository --yes --update ppa:ansible/ansible,
+          apt install ansible
 
+      - name: Deploy
+        run: |
+         echo ${{secrets.SSH_PRIVATE_KEY}} > .secret ,
+         ./deploy_server.sh .secret
