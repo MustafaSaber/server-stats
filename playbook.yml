@@ -3,5 +3,56 @@
   hosts: server
   become: yes
   tasks:
+    - name: Import variables
+      include_vars: var.yaml
+
     - name: Ping
       ansible.builtin.ping:
+
+    - name: Install openJDK
+      yum:
+        name: java-11-openjdk-devel
+        state: present
+
+    - name: Install Python
+      yum:
+        name:
+          - python3-devel
+          - libselinux-python
+          - gcc
+        state: present
+
+    - name: Synchronize app
+      become: yes
+      synchronize:
+        src: ./
+        dest: "{{ DEST_PATH }}"
+        delete: yes
+        recursive: true
+        rsync_opts:
+          - "--exclude=.git"
+          - "--exclude=*.pyc"
+
+    - name: Install specified python requirements
+      pip:
+        executable: pip3
+        name: psutil
+        state: present
+
+    - name: CPU cron
+      ansible.builtin.cron:
+        name: "Get CPU"
+        minute: "*/15"
+        job: "python3 {{ CPU_SCRIPT_PATH }}"
+
+    - name: RAM cron
+      ansible.builtin.cron:
+        name: "Get RAM"
+        minute: "*/15"
+        job: "python3 {{ MEM_SCRIPT_PATH }}"
+
+    - name: DISK cron
+      ansible.builtin.cron:
+        name: "Get DISK"
+        minute: "*/15"
+        job: "python3 {{ DISK_SCRIPT_PATH }}"
