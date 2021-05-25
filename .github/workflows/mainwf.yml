@@ -37,7 +37,7 @@ jobs:
           pip install ansible
 
       - name: Deploy
-        run: 'echo "$SSH_PRIVATE_KEY" > key; ./deploy_server.sh key'
+        run: 'echo "$SSH_PRIVATE_KEY" > key; chmod 400 key; ./deploy_server.sh key'
         shell: bash
         env:
           SSH_KEY: ${{secrets.SSH_PRIVATE_KEY}}
