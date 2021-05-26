@@ -36,7 +36,7 @@
     - name: Install specified python requirements
       pip:
         executable: pip3
-        name: psutil
+        requirements: "{{ DEST_PATH }}/requirements.txt"
         state: present
 
     - name: CPU cron
