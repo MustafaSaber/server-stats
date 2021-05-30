@@ -6,6 +6,7 @@ Create bash/python scripts under `/opt` to get RAM/CPU/DISK statistics on CentOS
 
 * ansible
 * pip3
+* precommit
 * docker (Optional)
 
 Install python packages requirements via `pip3 install -r requiements.txt` you can go an extra mile and make virtual env for your peoject.
