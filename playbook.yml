@@ -43,16 +43,16 @@
       ansible.builtin.cron:
         name: "Get CPU"
         minute: "*/15"
-        job: "python3 {{ CPU_SCRIPT_PATH }}"
+        job: "python3 {{ CPU_SCRIPT_PATH }} {{ CPU_CSV_PATH }}"
 
     - name: RAM cron
       ansible.builtin.cron:
         name: "Get RAM"
         minute: "*/15"
-        job: "python3 {{ MEM_SCRIPT_PATH }}"
+        job: "python3 {{ MEM_SCRIPT_PATH }} {{ MEM_CSV_PATH }}"
 
     - name: DISK cron
       ansible.builtin.cron:
         name: "Get DISK"
         minute: "*/15"
-        job: "python3 {{ DISK_SCRIPT_PATH }}"
+        job: "python3 {{ DISK_SCRIPT_PATH }} {{ DISK_CSV_PATH }} "
