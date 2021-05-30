@@ -18,14 +18,11 @@ dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
 
 cpu = psutil.cpu_percent(interval=1)
 
-print(f"date and time = {dt_string} and CPU is {cpu}, output path is {csv_path}")	
+print(f"date and time = {dt_string} and CPU is {cpu}, output path is {csv_path}")
 
-temp_dict =  {
-    "timestamp": dt_string,
-    "utilization": cpu
-}
+temp_dict = {"timestamp": dt_string, "utilization": cpu}
 
-with open(csv_path, 'a', encoding='UTF8', newline='') as f:
+with open(csv_path, "a", encoding="UTF8", newline="") as f:
     writer = csv.DictWriter(f, fieldnames=fieldnames)
     # writer.writeheader()
     writer.writerow(temp_dict)

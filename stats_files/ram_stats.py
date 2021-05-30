@@ -18,14 +18,11 @@ dt_string = now.strftime("%d/%m/%Y %H:%M:%S")
 
 ram_stats = psutil.virtual_memory()
 
-print(f'RAM memory {ram_stats[2]} used, output path is {csv_path}')
+print(f"RAM memory {ram_stats[2]} used, output path is {csv_path}")
 
-temp_dict =  {
-    "timestamp": dt_string,
-    "utilization": ram_stats[2]
-}
+temp_dict = {"timestamp": dt_string, "utilization": ram_stats[2]}
 
-with open(csv_path, 'a', encoding='UTF8', newline='') as f:
+with open(csv_path, "a", encoding="UTF8", newline="") as f:
     writer = csv.DictWriter(f, fieldnames=fieldnames)
     # writer.writeheader()
     writer.writerow(temp_dict)
