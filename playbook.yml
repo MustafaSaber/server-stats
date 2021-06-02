@@ -23,7 +23,6 @@
         state: present
 
     - name: Synchronize app
-      # become: yes
       synchronize:
         src: ./
         dest: "{{ DEST_PATH }}"
