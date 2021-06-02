@@ -1,7 +1,7 @@
-![Main Workflow](https://github.com/MustafaSaber/incorta-task/actions/workflows/mainwf.yml/badge.svg)
-# Incorta Task
+![Main Workflow](https://github.com/MustafaSaber/server-stats/actions/workflows/mainwf.yml/badge.svg)
+# Server Stats
 
-Create bash/python scripts under `/opt` to get RAM/CPU/DISK statistics on CentOS 7 machine.
+A simple project to get server statistics (RAM/CPU/DISK) of CentOS machine over time
 
 ## Requirements
 
@@ -10,7 +10,7 @@ Create bash/python scripts under `/opt` to get RAM/CPU/DISK statistics on CentOS
 * precommit
 * docker (Optional)
 
-Install python packages requirements via `pip3 install -r requiements.txt` you can go an extra mile and make virtual env for your peoject.
+Install python packages requirements via `pip3 install -r requiements.txt` you can go an extra mile and make virtual env for your project.
 
 ## Deploying To Host
 
