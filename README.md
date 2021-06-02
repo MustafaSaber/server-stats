@@ -1,3 +1,4 @@
+![Main Workflow](https://github.com/MustafaSaber/incorta-task/actions/workflows/mainwf.yml/badge.svg)
 # Incorta Task
 
 Create bash/python scripts under `/opt` to get RAM/CPU/DISK statistics on CentOS 7 machine.
